@@ -15,7 +15,7 @@ github_username:  iain3024
 disqus_shortname: iain3024
 favicon:     "/images/favicon.ico"
 aboutme: Hi, this is Iain. # these are shown on aboutme-sidebar.
-aboutme_photo: https://i.imgur.com/Mdc4szJl.jpg # your photo.
+aboutme_photo: "/images/IMG_1239.jpg" # your photo.
 google_analytics_key:  # put YOUR key here to enable tracking! (blank to disable)
 
 
