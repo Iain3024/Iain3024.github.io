@@ -4,12 +4,12 @@ title: Delegate Event and Observer pattern
 modified: 2017-1-31
 categories: C#
 tags: 
-  Delegate Event
+  Delegate Event [Design pattern]
 comments: true
 ---
 
 
-### 1.Delegate
+### Delegate
 
 You can see the simplest way of adding a page is just to add an HTML ( or markdown ) file in the root directory with a suitable name for the page you want to create. For example, aahome.md is the homepage link, about.md is the about page.
 
@@ -17,11 +17,11 @@ All sidebar boxes html files are in the <code>_include</code> directory, their n
 
 
 
-### 2.Event
+### Event
 
 
 
-### 3. Observer pattern
+### Observer pattern
 
 
 
