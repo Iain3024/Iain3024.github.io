@@ -12,7 +12,7 @@ locale: en_US
 ### Personal info and site tools info:
 twitter_username: sand302
 github_username:  iain3024
-disqus_shortname: iain3024
+disqus_shortname: dotnetbuilder
 favicon:     "/images/favicon.ico"
 aboutme: Hi, this is Iain. # these are shown on aboutme-sidebar.
 aboutme_photo: "/images/IMG_1239.jpg" # your photo.
