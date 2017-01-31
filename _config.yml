@@ -3,7 +3,7 @@ title: Dotnetbuilder
 tagline: Record of my study and experience in development 
 author: Iain
 email: iain.zhang302@gmail.com
-description: "Freshman21 is a Jekyll blog theme." # You can edit this line in _config.yml. It will appear in your document head meta and in your feed.xml site description
+description: "" # You can edit this line in _config.yml. It will appear in your document head meta and in your feed.xml site description
 keywords: "C#, ASP.NET, Database"
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://dotnetbuilder.co.nz" # the base hostname & protocol for your site
