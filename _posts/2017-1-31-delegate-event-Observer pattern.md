@@ -13,7 +13,7 @@ To be continue...
 Test code highlighting.
 Test code highlighting.
 Test code highlighting.
-{% highlight R %}
+{% highlight  %}
 /// <summary>
 /// Modify.
 /// </summary>
