@@ -10,9 +10,23 @@ comments: true
 
 ### Delegate
 To be continue...
+Test code highlighting.
+Test code highlighting.
+Test code highlighting.
+<pre class="prettyprint">
+#include "x.h"
 
+main(){
 
+    print("hello world!");
 
+}
+</pre>
+
+Test code highlighting.
+Test code highlighting.
+Test code highlighting.
+Test code highlighting.
 
 ### Event
 
