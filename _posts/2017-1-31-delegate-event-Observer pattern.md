@@ -13,7 +13,7 @@ To be continue...
 Test code highlighting.
 Test code highlighting.
 Test code highlighting.
-<pre class="prettyprint">
+<pre >
 /// <summary>
 /// Modify.
 /// </summary>
