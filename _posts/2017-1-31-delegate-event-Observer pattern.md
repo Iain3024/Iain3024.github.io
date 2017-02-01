@@ -13,7 +13,7 @@ To be continue...
 Test code highlighting.
 Test code highlighting.
 Test code highlighting.
-{ % highlight R % }
+{% highlight R %}
 /// <summary>
 /// Modify.
 /// </summary>
@@ -31,7 +31,7 @@ public void UpdateBondAssessApplicationConfiguration_ModifyData_DataUpdated() //
 	Assert.IsTrue(newAssessAppDataSet.CM_LookupConfiguration[0].Description == "This is my modify");//第三步 验证数据的一致性
 	Assert.IsTrue(CompareToTable(newAssessAppDataSet.CM_LookupConfiguration, actual.CM_LookupConfiguration));
 }
-{ % endhighlight % }
+{% endhighlight %}
 
 Test code highlighting.
 Test code highlighting.
