@@ -28,6 +28,7 @@ In delegate part, it will include anonymous method, lambda expression, Func<> an
 
 <a href="#observer">3. Observer pattern </a>
 
+
 ----------------------------------------------------------------------------------
 
 ### <a name="delegate"> 1. Delegate </a>
