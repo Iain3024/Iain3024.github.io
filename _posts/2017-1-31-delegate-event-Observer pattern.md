@@ -68,14 +68,14 @@ AddDel lambdaDemo = (a,b) => a+b;
 #### 1.4 Func<> and Action<>
 
 #### 1.5 Brief summary
-
-##### When you need to use a parameter which is a delegate type, just use lambda expression.
-
-##### Lambda expression could be assigned to a delegate variable.
-
-##### Lambda expression is anonymous Methods in nature.
-
-##### If you want to use delegate, just use Func<> and Action<>.
+<ul>
+<li>When you need to use a parameter which is a delegate type, just use lambda expression.</li>
+<li>Lambda expression could be assigned to a delegate variable.</li>
+<li>Lambda expression is anonymous Methods in nature.</li>
+<li>If you want to use delegate, just use Func<> and Action<>.</li>
+</ul>
+##### 
+ 
 
 ### 2. Event
 
