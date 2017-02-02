@@ -10,7 +10,7 @@ comments: true
 
 ### 1. Delegate
 
-##  1.1 Delegate define
+#### 1.1 Delegate define
 
 
 {% highlight R %}
@@ -32,7 +32,7 @@ Class program
 
 {% endhighlight %}
 
-##  1.2 Anonymous Methods create instance of delegate 
+#### 1.2 Anonymous Methods create instance of delegate 
 
 
 {% highlight R %}
@@ -49,7 +49,7 @@ Class program
 
 {% endhighlight %}
 
-##  1.3 Lambda expression create instance of delegate
+#### 1.3 Lambda expression create instance of delegate
 
 
 {% highlight R %}
@@ -65,17 +65,17 @@ AddDel lambdaDemo = (a,b) => a+b;
 {% endhighlight %}
 
 
-##  1.4 Func<> and Action<>
+#### 1.4 Func<> and Action<>
 
-##  1.5 Brief summary
+#### 1.5 Brief summary
 
-#   When you need to use a parameter which is a delegate type, just use lambda expression.
+#####When you need to use a parameter which is a delegate type, just use lambda expression.
 
-#   Lambda expression could be assigned to a delegate variable.
+#####Lambda expression could be assigned to a delegate variable.
 
-#   Lambda expression is anonymous Methods in nature.
+#####Lambda expression is anonymous Methods in nature.
 
-#   If you want to use delegate, just use Func<> and Action<>.
+#####If you want to use delegate, just use Func<> and Action<>.
 
 ### 2. Event
 
