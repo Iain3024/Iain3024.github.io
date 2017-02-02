@@ -9,38 +9,167 @@ comments: true
 
 
 ### Delegate
-To be continue...
-Test code highlighting.
-Test code highlighting.
-Test code highlighting.
+
+
 {% highlight R %}
-/// <summary>
-/// Modify.
-/// </summary>
-[TestMethod()]
-[RollBack()]
-public void UpdateBondAssessApplicationConfiguration_ModifyData_DataUpdated() //注意命名规范，下一篇会着重讲解！
- {
-	AssessApplicationConfigurationDataSet assessConfigurationDataSet = target.GetBondAssessApplicationConfiguration();
-	assessConfigurationDataSet.CM_LookupConfiguration[0].Description = "This is my modify";
-	AssessApplicationConfigurationDataSet actual = target.UpdateBondAssessApplicationConfiguration(assessConfigurationDataSet);
-	AssessApplicationConfigurationDataSet newAssessAppDataSet = target.GetBondAssessApplicationConfiguration();
-	
-	Assert.IsNotNull(actual);                       //第一步 验证是否为Null
-	Assert.IsTrue(actual.CM_LookupConfiguration.Rows.Count > 0);       //第二步 验证是否为Empty
-	Assert.IsTrue(newAssessAppDataSet.CM_LookupConfiguration[0].Description == "This is my modify");//第三步 验证数据的一致性
-	Assert.IsTrue(CompareToTable(newAssessAppDataSet.CM_LookupConfiguration, actual.CM_LookupConfiguration));
-}
+
 {% endhighlight %}
 
-Test code highlighting.
-Test code highlighting.
-Test code highlighting.
-Test code highlighting.
+
 
 ### Event
 
+The following example will represent why event is safer than delegate.
 
+Here is the requirements: 
+
+There are two forms. Main form and child form as shown below.
+
+<img src="/images/delegate/mainfrm.jpg">
+
+<img src="/images/delegate/childForm.jpg">
+
+Click the button "StartChildFrm" will open the child form.
+
+Click the button "SendToMainFrm" will send the string inputed in the textbox to main form and display on the textbox of main form.
+
+First of all, we use delegate.
+
+Here is the code in main form.
+
+{% highlight R %}
+namespace DelegateAndEvent
+{
+    public partial class MainFrm : Form
+    {
+        public MainFrm()
+        {
+            InitializeComponent();
+        }
+
+        private void StartChildFrm_Click(object sender, EventArgs e)
+        {
+            ChildFrm childFrm = new ChildFrm();
+            childFrm.ChildFrmInputDel = new ChildFrmInput(this.GetChildInput);            
+
+            childFrm.Show();
+            //childFrm.ChildFrmInputDel("Output anything hahaha!");
+
+
+        }
+
+        public void GetChildInput(string text)
+        {
+            tbMainFrmShow.Text = text;
+        }
+    }
+}
+
+{% endhighlight %}
+
+Here is the code in child form.
+
+{% highlight R %}
+namespace DelegateAndEvent
+{
+    public delegate void ChildFrmInput(string text);
+
+    public partial class ChildFrm : Form
+    {
+        public ChildFrmInput ChildFrmInputDel { get; set; }
+
+        public ChildFrm()
+        {
+            InitializeComponent();
+        }
+
+        private void SendToMainFrm_Click(object sender, EventArgs e)
+        {
+            if (ChildFrmInputDel != null)
+            {
+                ChildFrmInputDel(this.tbChildFrmInput.Text);
+            }
+        }
+    }
+}
+{% endhighlight %}
+
+<img src="/images/delegate/childinput.jpg">
+
+<img src="/images/delegate/MainGetinput.jpg">
+
+<img src="/images/delegate/delegateProblem.jpg">
+
+The requirements could be implement.
+
+However, we can use delegate in main form like this:
+
+{% highlight R %}
+ childFrm.ChildFrmInputDel("Output anything hahaha!");
+{% endhighlight %}
+
+
+Next, we use event to solve this problem.
+
+Here is the code in main form.
+
+{% highlight R %}
+namespace DelegateAndEvent
+{
+    public partial class MainFrm : Form
+    {
+        public MainFrm()
+        {
+            InitializeComponent();
+        }
+
+        private void StartChildFrm_Click(object sender, EventArgs e)
+        {
+            ChildFrm childFrm = new ChildFrm();
+            //childFrm.ChildFrmInputDel = new ChildFrmInput(this.GetChildInput);
+            childFrm.ChildFrmInputEvent += GetChildInput;
+
+            childFrm.Show();
+            //childFrm.ChildFrmInputDel("Output anything hahaha!");          
+
+        }
+
+        public void GetChildInput(string text)
+        {
+            tbMainFrmShow.Text = text;
+        }
+    }
+}
+
+{% endhighlight %}
+
+Here is the code in child form.
+
+{% highlight R %}
+namespace DelegateAndEvent
+{
+    public delegate void ChildFrmInput(string text);
+
+    public partial class ChildFrm : Form
+    {
+        //public ChildFrmInput ChildFrmInputDel { get; set; }
+        public event ChildFrmInput ChildFrmInputEvent;
+        public ChildFrm()
+        {
+            InitializeComponent();
+        }
+
+        private void SendToMainFrm_Click(object sender, EventArgs e)
+        {
+            if (ChildFrmInputEvent != null)
+            {
+                //ChildFrmInputDel(this.tbChildFrmInput.Text);
+                ChildFrmInputEvent(this.tbChildFrmInput.Text);
+            }
+        }
+    }
+}
+{% endhighlight %}
 
 ### Observer pattern
 
