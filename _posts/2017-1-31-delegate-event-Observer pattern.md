@@ -13,6 +13,8 @@ comments: true
 #### 1.1 Delegate define
 
 
+<!-- more -->
+
 {% highlight R %}
 Public delegate int AddDel(int a, int b);  // delegate
 
@@ -74,7 +76,7 @@ AddDel lambdaDemo = (a,b) => a+b;
 <li>Lambda expression is anonymous Methods in nature.</li>
 <li>If you want to use delegate, just use Func<> and Action<>.</li>
 </ul>
-##### 
+
  
 
 ### 2. Event
