@@ -28,13 +28,14 @@ In delegate part, it will include anonymous method, lambda expression, Func<> an
 
 <a href="#observer">3. Observer pattern </a>
 
+----------------------------------------------------------------------------------
 
 ### <a name="delegate"> 1. Delegate </a>
 
 #### <a name="11delegate">1.1 Delegate </a>
 
 
-<!-- more -->
+
 What is delegate?
 
 Delegate is a type. Just like int, float, double. 
