@@ -7,13 +7,43 @@ tags: [Delegate, Event, Design pattern]
 comments: true
 ---
 
+In this blog, I will talk about delegate, event and observer pattern.
 
-### 1. Delegate
+In delegate part, it will include anonymous method, lambda expression, Func<> and Action<>.
 
-#### 1.1 Delegate define
+<!-- more -->
+<a href="#delegate">1. Delegate </a>
+<a href="#11delegate">1.1 Delegate </a>
+<a href="#12anonymous">1.2 Anonymous Methods </a>
+<a href="#13lambda">1.3 Lambda expression </a>
+<a href="#14func">1.4 Func<> and Action<> </a>
+<a href="#15summary">1.5 Brief summary </a>
+<a href="#event">2. Event </a>
+<a href="#observer">3. Observer pattern </a>
+
+
+### <a name="delegate"> 1. Delegate </a>
+
+#### <a name="11delegate">1.1 Delegate </a>
 
 
 <!-- more -->
+What is delegate?
+
+Delegate is a type. Just like int, float, double. 
+
+A integer number could be assigned to a int variable.
+
+A method could be assigned to a delegate variable.
+
+Here is the steps:
+
+Step 1, use key word "delegate" define a delegate;
+
+Step 2, define a method to match the delegate defined in step 1;
+
+Step 3, use the method defined in step 2 to instantiate a delegate variable.
+
 
 {% highlight R %}
 Public delegate int AddDel(int a, int b);  // delegate
@@ -34,8 +64,11 @@ Class program
 
 {% endhighlight %}
 
-#### 1.2 Anonymous Methods create instance of delegate 
+#### <a name="12anonymous">1.2 Anonymous Methods </a>
 
+Usually, delegate receives disposable method or the method body is very simple.
+
+Therefore, we could use Anonymous Methods to instead of the define of method. 
 
 {% highlight R %}
     Public delegate int AddDel(int a, int b);  // delegate
@@ -51,7 +84,7 @@ Class program
 
 {% endhighlight %}
 
-#### 1.3 Lambda expression create instance of delegate
+#### <a name="13lambda">1.3 Lambda expression </a>
 
 
 {% highlight R %}
@@ -67,9 +100,9 @@ AddDel lambdaDemo = (a,b) => a+b;
 {% endhighlight %}
 
 
-#### 1.4 Func<> and Action<>
+#### <a name="14func">1.4 Func<> and Action<> </a>
 
-#### 1.5 Brief summary
+#### <a name="15summary">1.5 Brief summary </a>
 <ul>
 <li>When you need to use a parameter which is a delegate type, just use lambda expression.</li>
 <li>Lambda expression could be assigned to a delegate variable.</li>
@@ -79,7 +112,7 @@ AddDel lambdaDemo = (a,b) => a+b;
 
  
 
-### 2. Event
+### <a name="event">2. Event</a>
 
 The following example will represent why event is safer than delegate.
 
@@ -231,7 +264,7 @@ namespace DelegateAndEvent
 }
 {% endhighlight %}
 
-### Observer pattern
+### <a name="observer">3. Observer pattern</a>
 
 
 
