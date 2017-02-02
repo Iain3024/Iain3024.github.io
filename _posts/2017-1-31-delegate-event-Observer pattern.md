@@ -13,12 +13,19 @@ In delegate part, it will include anonymous method, lambda expression, Func<> an
 
 <!-- more -->
 <a href="#delegate">1. Delegate </a>
+
 <a href="#11delegate">1.1 Delegate </a>
+
 <a href="#12anonymous">1.2 Anonymous Methods </a>
+
 <a href="#13lambda">1.3 Lambda expression </a>
+
 <a href="#14func">1.4 Func<> and Action<> </a>
+
 <a href="#15summary">1.5 Brief summary </a>
+
 <a href="#event">2. Event </a>
+
 <a href="#observer">3. Observer pattern </a>
 
 
