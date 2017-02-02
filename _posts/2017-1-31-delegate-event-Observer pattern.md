@@ -8,16 +8,76 @@ comments: true
 ---
 
 
-### Delegate
+### 1. Delegate
+
+##  1.1 Delegate define
 
 
 {% highlight R %}
+Public delegate int AddDel(int a, int b);  // delegate
+
+Class program
+{
+    Static void Main(string[] args)
+    {
+        AddDel del = new AddDel(AddFunc);
+        del(2,3);
+    }
+    
+    Static int AddFunc(int a, int b)
+    {
+        return a+b;
+    }
+}
 
 {% endhighlight %}
 
+##  1.2 Anonymous Methods create instance of delegate 
 
 
-### Event
+{% highlight R %}
+    Public delegate int AddDel(int a, int b);  // delegate
+    
+    Class program
+    {
+        Static void Main(string[] args)
+        {
+            AddDel del = delegate(int a,int b) { return a+b; }
+            del(2,3);
+        }
+    }
+
+{% endhighlight %}
+
+##  1.3 Lambda expression create instance of delegate
+
+
+{% highlight R %}
+    //AddDel del = delegate(int a,int b) { return a+b; }
+ 
+    AddDel lambda = (int a ,int b) => {return a+b ;};
+
+{% endhighlight %}
+
+Finally, 
+{% highlight R %}
+AddDel lambdaDemo = (a,b) => a+b;
+{% endhighlight %}
+
+
+##  1.4 Func<> and Action<>
+
+##  1.5 Brief summary
+
+#   When you need to use a parameter which is a delegate type, just use lambda expression.
+
+#   Lambda expression could be assigned to a delegate variable.
+
+#   Lambda expression is anonymous Methods in nature.
+
+#   If you want to use delegate, just use Func<> and Action<>.
+
+### 2. Event
 
 The following example will represent why event is safer than delegate.
 
@@ -25,9 +85,7 @@ Here is the requirements:
 
 There are two forms. Main form and child form as shown below.
 
-<img src="/images/delegate/mainfrm.jpg">
-
-<img src="/images/delegate/childForm.jpg">
+<img src="/images/delegate/mainandchild.jpg">
 
 Click the button "StartChildFrm" will open the child form.
 
