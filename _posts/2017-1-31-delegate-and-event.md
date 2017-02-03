@@ -1,15 +1,15 @@
 ---
 layout: post
-title: Delegate Event and Observer pattern
+title: Delegate and Event 
 modified: 2017-1-31
 categories: C#
-tags: [Delegate, Event, Design pattern]
+tags: [Delegate, Event, Lambda expression]
 comments: true
 ---
 
-In this blog, I will talk about delegate, event and observer pattern.
+In this blog, I will talk about delegate and event in C#.
 
-In delegate part, it will include anonymous method, lambda expression, Func<> and Action<>.
+In the delegate part, it will include anonymous method, lambda expression, Func<> and Action<>.
 
 <!-- more -->
 <a href="#delegate">1. Delegate </a>
@@ -26,7 +26,6 @@ In delegate part, it will include anonymous method, lambda expression, Func<> an
 
 <a href="#event">2. Event </a>
 
-<a href="#observer">3. Observer pattern </a>
 
 
 ----------------------------------------------------------------------------------
@@ -45,27 +44,36 @@ A integer number could be assigned to a int variable.
 
 A method could be assigned to a delegate variable.
 
+In addition, delegate is a reference type.
+
+How to use delegate?
+
 Here is the steps:
 
-Step 1, use key word "delegate" define a delegate;
+Step 1, use key word <strong>delegate</strong> define a delegate;
 
 Step 2, define a method to match the delegate defined in step 1;
 
 Step 3, use the method defined in step 2 to instantiate a delegate variable.
 
+For example, the followling code define a delegate named <strong>AddDel</strong>. It has two input parameters <strong>a</strong> and <strong>b</strong> that are int type. 
+
+The method <strong>AddFunc</strong> is used to match the delegate <strong>AddDel</strong>.
+
+<strong>del</strong> is a variable of <strong>AddDel</strong> and instantiated by using <strong>AddFunc</strong>.
 
 {% highlight R %}
-Public delegate int AddDel(int a, int b);  // delegate
+Public delegate int AddDel(int a, int b);  // define a delegate
 
 Class program
 {
     Static void Main(string[] args)
     {
-        AddDel del = new AddDel(AddFunc);
+        AddDel del = new AddDel(AddFunc); //instantiate a delegate variable by using AddFunc
         del(2,3);
     }
     
-    Static int AddFunc(int a, int b)
+    Static int AddFunc(int a, int b) //define a method to match the delegate AddDel
     {
         return a+b;
     }
@@ -110,6 +118,8 @@ AddDel lambdaDemo = (a,b) => a+b;
 
 
 #### <a name="14func">1.4 Func<> and Action<> </a>
+
+
 
 #### <a name="15summary">1.5 Brief summary </a>
 <ul>
@@ -273,7 +283,15 @@ namespace DelegateAndEvent
 }
 {% endhighlight %}
 
-### <a name="observer">3. Observer pattern</a>
+
+Thanks for reading.
+
+There is another <a href="">blog </a>that implement logging module using different ways : delegate and observer pattern.
+
+Highly recommended！
+
+
+
 
 
 
