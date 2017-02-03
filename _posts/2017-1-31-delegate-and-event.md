@@ -31,10 +31,8 @@ In the delegate part, it will include anonymous method, lambda expression, Func<
 ----------------------------------------------------------------------------------
 
 ### <a name="delegate"> 1. Delegate </a>
-
+<br>
 #### <a name="11delegate">1.1 Delegate </a>
-
-
 
 What is delegate?
 
@@ -45,6 +43,12 @@ A integer number could be assigned to a int variable.
 A method could be assigned to a delegate variable.
 
 In addition, delegate is a reference type.
+
+Delegate is similar to method pointer in C++. 
+
+However, delegate is a type-safety pointer. 
+
+As a delegate must point to a method that are match the define of the delegate.
 
 How to use delegate?
 
@@ -86,41 +90,66 @@ Class program
 
 Usually, delegate receives disposable method or the method body is very simple.
 
-Therefore, we could use Anonymous Methods to instead of the define of method. 
+Therefore, we could use Anonymous Method to instead of the define of method. 
 
 {% highlight R %}
-    Public delegate int AddDel(int a, int b);  // delegate
+    Public delegate int AddDel(int a, int b);  // define a delegate
     
     Class program
     {
         Static void Main(string[] args)
         {
-            AddDel del = delegate(int a,int b) { return a+b; }
+            AddDel del = delegate(int a,int b) { return a+b; } //use Anonymous Method to define a method
             del(2,3);
         }
     }
 
 {% endhighlight %}
+<br>
+<br>
 
 #### <a name="13lambda">1.3 Lambda expression </a>
 
+Lambda expression is anonymous method in nature.
+
+As a result, we can use Lambda expression to instead of anonymous method. 
+
+The lambda operator => read as "goes to".
+
+The following two lines code are equal.
 
 {% highlight R %}
     //AddDel del = delegate(int a,int b) { return a+b; }
  
     AddDel lambda = (int a ,int b) => {return a+b ;};
-
 {% endhighlight %}
+
+As there are two input parameters in int type are needed when the delegate was defined. 
+
+The type of parameters in lambda expression could be omitted.
 
 Finally, 
-{% highlight R %}
-AddDel lambdaDemo = (a,b) => a+b;
-{% endhighlight %}
 
+{% highlight R %}
+AddDel lambdaDemo = (a,b) => a+b; // equal to AddDel lambda = (int a ,int b) => {return a+b ;};
+{% endhighlight %}
+<br>
+<br>
 
 #### <a name="14func">1.4 Func<> and Action<> </a>
 
+In a real project, there are many delegate with the same method signature need to be define.
 
+This cause a lot trouble.
+
+Therefore, Microsoft provide two generic delegate Func<> and Action<>.
+
+Func<> could have 0 to 16 parameters and 1 return result.
+
+Action<> is similar with Func<> with no return result.
+
+<br>
+<br>
 
 #### <a name="15summary">1.5 Brief summary </a>
 <ul>
@@ -129,10 +158,16 @@ AddDel lambdaDemo = (a,b) => a+b;
 <li>Lambda expression is anonymous Methods in nature.</li>
 <li>If you want to use delegate, just use Func<> and Action<>.</li>
 </ul>
-
+<br>
+<br>
  
 
 ### <a name="event">2. Event</a>
+Event is a instance of delegate.
+
+Event is safer than delegate because event only can be triggered in the class contained it.
+
+Delegate could be triggered outside the class contained it.
 
 The following example will represent why event is safer than delegate.
 
@@ -167,8 +202,6 @@ namespace DelegateAndEvent
 
             childFrm.Show();
             //childFrm.ChildFrmInputDel("Output anything hahaha!");
-
-
         }
 
         public void GetChildInput(string text)
@@ -207,11 +240,12 @@ namespace DelegateAndEvent
 }
 {% endhighlight %}
 
+Run the program and the result are shown below.
+
 <img src="/images/delegate/childinput.jpg">
 
 <img src="/images/delegate/MainGetinput.jpg">
 
-<img src="/images/delegate/delegateProblem.jpg">
 
 The requirements could be implement.
 
@@ -221,6 +255,11 @@ However, we can use delegate in main form like this:
  childFrm.ChildFrmInputDel("Output anything hahaha!");
 {% endhighlight %}
 
+Run it.
+
+<img src="/images/delegate/delegateProblem.jpg">
+
+The delegate is triggered outside ChildFrm.
 
 Next, we use event to solve this problem.
 
@@ -244,7 +283,6 @@ namespace DelegateAndEvent
 
             childFrm.Show();
             //childFrm.ChildFrmInputDel("Output anything hahaha!");          
-
         }
 
         public void GetChildInput(string text)
@@ -282,6 +320,20 @@ namespace DelegateAndEvent
         }
     }
 }
+{% endhighlight %}
+
+Run the program again.
+
+<img src="/images/delegate/eventchild.jpg">
+
+<img src="/images/delegate/eventMain.jpg">
+
+All good.
+
+The followling code are not allowed anymore.
+
+{% highlight R %}
+childFrm.ChildFrmInputEvent("Output anything hahaha!");
 {% endhighlight %}
 
 
