@@ -81,6 +81,10 @@ Class program
 
 {% endhighlight %}
 
+
+
+
+
 #### <a name="12anonymous">1.2 Anonymous Methods </a>
 
 Usually, delegate receives disposable method or the method body is very simple.
