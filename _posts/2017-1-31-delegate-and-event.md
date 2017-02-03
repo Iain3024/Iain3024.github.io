@@ -78,12 +78,9 @@ Class program
         return a+b;
     }
 }
-
 {% endhighlight %}
-
-
-
-
+<br>
+<br>
 
 #### <a name="12anonymous">1.2 Anonymous Methods </a>
 
