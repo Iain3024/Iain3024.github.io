@@ -6,28 +6,28 @@ categories: [C#, Design pattern]
 tags: [Delegate, Observer pattern] 
 comments: true
 ---
-In this blog, I will represent two ways of implementing logging module by using delegate and observer pattern.
+In this blog, I will represent two ways of implementing exception log record module by using delegate and observer pattern.
 
 <!-- more -->
 
 <a href="#delegate">Delegate </a>
 <a href="#observer">Observer pattern </a>
 
-----------------------------------------------------------------------------------
+----------------------------------------------------I am the split line o(^_^)Y------------------------------
 
-Logging module is essential to a system. There are many actions need to be record in system log such as administrator login or logout, system exception. 
+Exception log record is essential to a system. Usually we can not install a visual studio in a production environment to track bugs. Therefore, record the exception information is crucial for finding and analyzing problems in enterprise server environments.
 
-Some people would like to record log in text file, others may record log in database or even in both text file and database. These things may always change. Add new way to record log or remove the old way.
+Sometimes exception log may need to be record in text file, sometimes may record in database or using a web service to write log to another remote server. These things may always change. Add new way to record log or remove the old way.
 
-Therefore, using a flexible way to implement logging module is necessary.
+As a result, using a flexible way to implement log record is necessary.
 
 Here is the requirements:
 <ul>
 <li>
-	Implement a logging module.
+	Implement a exception log record module.
 </li>
 <li>
-	System log may be record in different media such as text file, MS Sqlserver. 
+	Exception log may be record in different media such as text file, MS Sqlserver. 
 </li>
 <li>
 	The media used to store the log may also be changed to another way such as from text file to MS Sqlserver, add a new way to record log.
@@ -36,7 +36,7 @@ Here is the requirements:
 
 I will implement these in two ways by using delegate and observer pattern.
 
-I assume that the log would be record in MS SQLServer and text file.
+First, I assume that the log would be record in MS SQLServer. Then, I will also record the log in text file.
 
 There are some common code both in delegate way and observer pattern way.
 
@@ -81,7 +81,7 @@ public class TextFileWriter : ILogWriter
 }
 {% endhighlight %}
 
-There may also have <strong>MySQLWriter</strong>, <strong>OracleWriter</strong> in the real project. This blog is focus on how to deal with this different way of writing log.
+
 
 ### <a name="delegate"> Delegate</a>
 <br>
@@ -91,15 +91,27 @@ Delegate is a type in C#. There is another <a href="">blog </a>discussed it.
 
 I use a class named LogHelper to implement the process of writing log.
 
+In a large scale system, there may be many exception information need to be record in the same time. It may cause concurrency problem when we call the method or service to write this information at the same time and may also cause performance problem when writing the information.
+
+Here is one of the solution, 
+
+step 1, use a queue to store the exception information;
+
+step 2, use another thread to write the information to the media such as database, text file.
+
+For step 1, as queue is in the memory which provide an extremely high speed to read and write, it could solve the problem caused by high concurrency. 
+
+For step 2, it is a asynchronous way to deal with the performance problem.
+
+
 The code is shown below.
 
-<img src="/images/delegate/.jpg">
 
 {% highlight R %}
-	public delegate void WriteLogDel(string str);
+	public delegate void WriteLogDel(string str); 
     public class LogHelper
     {
-        public static Queue<string> ExceptionStringQueue = new Queue<string>();
+        public static Queue<string> ExceptionStringQueue = new Queue<string>(); //define a queue to store the exception msgs
         public static WriteLogDel WriteLogDelFunc;
 
         static LogHelper()
@@ -107,7 +119,7 @@ The code is shown below.
             WriteLogDelFunc = new WriteLogDel(WriteLogToFile);
             WriteLogDelFunc += WriteLogToSQLServer;
 
-            //write the exception msgs which are from the queue to the log file
+            //write the exception msgs from the queue to the log file
             ThreadPool.QueueUserWorkItem(o =>
             {
                 lock (ExceptionStringQueue)
@@ -147,7 +159,7 @@ The code is shown below.
 
 Next, I use observer pattern to implemnt the requirements.
 
-Observer pattern 
+The code is shown below.
 
 {% highlight R %}
 	public class LogHelper
@@ -184,5 +196,6 @@ Observer pattern
     }
 {% endhighlight %}
 
+There may also have <strong>MySQLWriter</strong>, <strong>OracleWriter</strong> in the real project. Then just add an implement of the write action and implement it with the interface <strong>ILogWriter</strong>. Add a new 
 
 Thanks for reading!
