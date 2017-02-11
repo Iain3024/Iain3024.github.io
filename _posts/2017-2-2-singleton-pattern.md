@@ -99,7 +99,7 @@ class MySingletonInMultiThread
         }
         public static MySingletonInMultiThread GetInstance()
         {           
-            if (_instanceInMultiThread == null) //Check the instance first, if the instance doesn't exist, add lock
+            if (_instanceInMultiThread == null) //Check the instance first, if the instance does not exist, add lock
             {
                 lock (_lock)
                 {
