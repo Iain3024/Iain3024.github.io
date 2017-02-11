@@ -28,7 +28,7 @@ In the delegate part, it will include anonymous method, lambda expression, Func<
 
 
 
-----------------------------------------------------I am the split line o(^_^)Y------------------------------------------
+----------------------------------------------------I am the split line o(^_^)Y------------------------------------------------
 
 ### <a name="delegate"> 1. Delegate </a>
 <br>

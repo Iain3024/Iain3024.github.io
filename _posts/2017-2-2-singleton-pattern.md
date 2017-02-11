@@ -17,7 +17,7 @@ In this blog, I will talk about singleton pattern and the implement of it in C#.
 <a href="#staticInitialization">Static Initialization </a>
 
 
-----------------------------------------------------I am the split line o(^_^)Y------------------------------------------
+----------------------------------------------------I am the split line o(^_^)Y------------------------------------------------
 
 
 ### <a name="singleton">Singleton</a>
