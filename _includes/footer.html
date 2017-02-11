@@ -10,7 +10,7 @@
   {% endif %}
   | Theme <a href="https://github.com/yulijia/freshman21/">Freshman21</a>   
 
-  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+  
   <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -20,31 +20,19 @@
   ga('create', 'UA-91306266-1', 'auto');
   ga('send', 'pageview');
 
-  function gotoTop(min_height){
-      //预定义返回顶部的html代码，它的css样式默认为不显示
-      var gotoTop_html = '<div id="gotoTop">返回顶部</div>';
-      //将返回顶部的html代码插入页面上id为page的元素的末尾 
-      $("#page").append(gotoTop_html);
-      $("#gotoTop").click(//定义返回顶部点击向上滚动的动画
-          function(){$('html,body').animate({scrollTop:0},700);
-      }).hover(//为返回顶部增加鼠标进入的反馈效果，用添加删除css类实现
-          function(){$(this).addClass("hover");},
-          function(){$(this).removeClass("hover");
-      });
-      //获取页面的最小高度，无传入值则默认为600像素
-      min_height ? min_height = min_height : min_height = 600;
-      //为窗口的scroll事件绑定处理函数
-      $(window).scroll(function(){
-          //获取窗口的滚动条的垂直位置
-          var s = $(window).scrollTop();
-          //当窗口的滚动条的垂直位置大于页面的最小高度时，让返回顶部元素渐现，否则渐隐
-          if( s > min_height){
-              $("#gotoTop").fadeIn(100);
-          }else{
-              $("#gotoTop").fadeOut(200);
-          };
-      });
-  };
-  gotoTop();
+//back to top
+window.onload = function(){
+  var oTop = document.getElementById("to_top");
+  var screenw = document.documentElement.clientWidth || document.body.clientWidth;
+  var screenh = document.documentElement.clientHeight || document.body.clientHeight;
+  oTop.style.left = screenw - oTop.offsetWidth +"px";
+  oTop.style.top = screenh - oTop.offsetHeight + "px";
+  
+  oTop.onclick = function(){
+    document.documentElement.scrollTop = document.body.scrollTop =0;
+  }
+}  
+
+  
 </script>
 </footer>
