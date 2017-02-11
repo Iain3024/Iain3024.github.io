@@ -88,7 +88,7 @@ public class TextFileWriter : ILogWriter
 <br>
 First of all, I use delegate to implement the requirements.
 
-Delegate is a type in C#. There is another <a href="">blog </a>discussed it.
+Delegate is a type in C#. There is another <a href="http://dotnetbuilder.co.nz/c%23/2017/01/31/delegate-and-event.html">blog </a>discussed it.
 
 I use a class named LogHelper to implement the process of writing log.
 

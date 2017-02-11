@@ -1,7 +1,7 @@
 ---
 layout: post
 title: My experience in database design
-modified: 2017-1-31
+modified: 2017-2-7
 categories: Database
 tags: 
 comments: true

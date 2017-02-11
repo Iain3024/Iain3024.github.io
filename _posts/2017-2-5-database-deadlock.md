@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Database deadlock
-modified: 2017-1-31
+modified: 2017-2-5
 categories: Database
 tags: 
-comments: false
+comments: true
 ---
 To be continue...
 

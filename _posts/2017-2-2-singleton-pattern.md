@@ -40,7 +40,7 @@ class MySingleton
         {
 
         }
-
+        
         //This method is the only way to get MySingleton's instance
         public static MySingleton GetInstance()
         {
