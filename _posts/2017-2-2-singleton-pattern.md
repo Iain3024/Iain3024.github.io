@@ -11,8 +11,11 @@ In this blog, I will talk about singleton pattern and the implement of it in C#.
 <!-- more -->
 
 <a href="#singleton">Singleton </a>
+
 <a href="#singletonInMultiThread">Singleton in multi-thread </a>
+
 <a href="#staticInitialization">Static Initialization </a>
+
 
 ----------------------------------------------------I am the split line o(^_^)Y------------------------------
 

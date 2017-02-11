@@ -11,6 +11,7 @@ In this blog, I will represent two ways of implementing exception log record mod
 <!-- more -->
 
 <a href="#delegate">Delegate </a>
+
 <a href="#observer">Observer pattern </a>
 
 ----------------------------------------------------I am the split line o(^_^)Y------------------------------
