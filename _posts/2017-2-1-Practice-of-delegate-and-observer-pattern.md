@@ -14,7 +14,7 @@ In this blog, I will represent two ways of implementing exception log record mod
 
 <a href="#observer">Observer pattern </a>
 
-----------------------------------------------------I am the split line o(^_^)Y------------------------------
+----------------------------------------------------I am the split line o(^_^)Y------------------------------------------
 
 Exception log record is essential to a system. Usually we can not install a visual studio in a production environment to track bugs. Therefore, record the exception information is crucial for finding and analyzing problems in enterprise server environments.
 
