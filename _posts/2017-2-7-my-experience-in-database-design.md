@@ -10,9 +10,7 @@ comments: true
 
 In this blog, I will focus on the design of database. There is another blog focus on solving the problem caused by deadlock. Please check it here <a href="http://dotnetbuilder.co.nz/database/2017/02/05/database-deadlock.html">Database deadlock</a>.
 
-
-
-----------------------------------------------------I am the split line o(^_^)Y------------------------------------------------
+<!-- more -->
 
 The following suggestions are on the condition that the system may need scalability and extensibility in the future.
 
