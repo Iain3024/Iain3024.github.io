@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Database deadlock
+title: Sentiment analysis by using Bayes’ theorem
 modified: 2017-2-5
 categories: [C#, Algorithm]
 tags: [Sentiment analysis, Bayes’ theorem]
