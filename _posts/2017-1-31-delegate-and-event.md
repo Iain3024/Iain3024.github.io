@@ -339,7 +339,7 @@ childFrm.ChildFrmInputEvent("Output anything hahaha!");
 
 Thanks for reading.
 
-There is another <a href="">blog </a>that implement logging module using different ways : delegate and observer pattern.
+There is another <a href="http://dotnetbuilder.co.nz/c%23/design%20pattern/2017/02/01/Practice-of-delegate-and-observer-pattern.html">blog </a>that implement logging module using different ways : delegate and observer pattern.
 
 Highly recommended！
 
