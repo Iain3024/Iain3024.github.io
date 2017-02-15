@@ -50,7 +50,9 @@ P (h1) = P (h2) = 1/2
 
 Then the training dataset is needed. In the training dataset, there are 5000 negative tweets and 5000 positive tweets. These tweets will present the evidence which are needed to identify if the word is come from a negative tweet or a positive one.
 
-For example, a word ‘awesome’ from a tweet being checked. The word might be appearing 500 times in the negative tweets of the training dataset and 2500 times in the positive tweets. P (E|h1) and P (E|h2) is calculated below:
+For example, a word ‘awesome’ from a tweet being checked. The word might be appearing 500 times in the negative tweets of the training dataset and 2500 times in the positive tweets. 
+
+P (E|h1) and P (E|h2) is calculated below:
 
 P (E|h1) = 1 / 10 
 
