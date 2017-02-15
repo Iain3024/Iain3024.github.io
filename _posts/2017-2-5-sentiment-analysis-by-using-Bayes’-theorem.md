@@ -52,37 +52,23 @@ Then the training dataset is needed. In the training dataset, there are 5000 neg
 
 For example, a word ‘awesome’ from a tweet being checked. The word might be appearing 500 times in the negative tweets of the training dataset and 2500 times in the positive tweets. 
 
-P (E|h1) and P (E|h2) is calculated below:
-
-P (E|h1) = 1 / 10 
-
-P (E|h2) = 5 / 10 
-
-Using Bayes to calculate P (h1|E) and P (h2|E).
-
-P (h1|E) = P (h1) * P (E/h1) / P (E)
-
-P (h2|E) = P (h2) * P (E/h2) / P (E)
+<img src="/images/sentiment/1.jpeg">
 
 Here P (E) is the tweet that is under checking. So it is one. 
 
-P (h1|E) = 1/2 * 1/10 / 1 = 1/20
-
-P (h2|E) = 1/2 * 5/10 / 1 = 5/20
+<img src="/images/sentiment/2.jpeg">
 
 Therefore, the two results showing the possibility of the word is negative or positive. comparing the two results to determine if the word is negative or not.
 
-If P (h1|E) > P (h2|E), the word is negative;
-
-If P (h1|E) <= P (h2|E), the word is positive.
+<img src="/images/sentiment/3.jpeg">
 
 Using Q to stand for the result of this comparison.
 
-Q = P (h1|E) / P (h2|E)
+<img src="/images/sentiment/4.jpeg">
 
 If Q is greater than 1, the word is more likely from a negative tweet. Otherwise, the word is more likely from a positive one.
 
-Q = P (h1|E) / P (h2|E) = 1/20 / 5/20 = 1/5 = 0.2
+<img src="/images/sentiment/5.jpeg">
 
 Q is smaller that one, that means the word ‘awesome’, is more often in the positive tweet. 
 
